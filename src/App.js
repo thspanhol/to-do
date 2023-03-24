@@ -1,4 +1,4 @@
-import { collection, onSnapshot, query } from "firebase/firestore";
+import { collection, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "./firebase";
 
@@ -22,6 +22,11 @@ function App() {
     return () => unsubscribe;
   }, [])
   //Update
+  const toggleComplete = async (todo) => {
+    await updateDoc(doc(db, 'todos', todo.id), {
+      completed: !todo.completed
+    });
+  };
   //Delete
 
 
@@ -33,7 +38,7 @@ function App() {
       {todos !== "" && todos.map((todo) => {
         return (
           <div key={todo.id}>
-            <h4>{todo.text}</h4>
+            <h4 onClick={() => toggleComplete(todo)}>{todo.text}</h4>
             <input type="checkbox" checked={todo.completed}/>
           </div>
         )
