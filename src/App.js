@@ -7,6 +7,11 @@ function App() {
 
   const [todos, setTodos] = useState("");
   const [quest, setQuest] = useState("");
+  const [user, setUser] = useState("");
+  const [password, setPassword] = useState("");
+  const fireCollection = `${user}-#-${password}`;
+  const [login, setLogin] = useState(false);
+  const [getDb, setGetDb] = useState(0);
 
   //Create
   const createTodo = async () => {
@@ -14,16 +19,16 @@ function App() {
       alert('Primeiro escreva sua tarefa.')
       return
     }
-    await addDoc(collection(db, 'todos'), {
+    await addDoc(collection(db, fireCollection), {
       text: quest,
       completed: false,
-      id: "teste1"
     })
     setQuest('');
+    setGetDb(getDb + 1)
   }
   //Read
   useEffect(() => {
-    const q = query(collection(db, 'todos'));
+    const q = query(collection(db, fireCollection));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       let todosArr = []
       querySnapshot.forEach((doc) => {
@@ -33,21 +38,22 @@ function App() {
       setTodos(todosArr);
     })
     return () => unsubscribe;
-  }, [])
+  }, [getDb])
   //Update
   const toggleComplete = async (todo) => {
-    await updateDoc(doc(db, 'todos', todo.id), {
+    await updateDoc(doc(db, fireCollection, todo.id), {
       completed: !todo.completed
     });
   };
   //Delete
   const deleteTodo = async (id) => {
-    await deleteDoc(doc(db, 'todos', id))
+    await deleteDoc(doc(db, fireCollection, id))
   };
 
 
   return (
-    <div>
+    login ? (
+      <div>
       <h1>Spanhol</h1>
       <input type="text" onChange={(e) => setQuest(e.target.value)} value={quest}/>
       <button onClick={() => createTodo()}>Enviar</button>
@@ -60,7 +66,25 @@ function App() {
           </div>
         )
       })}
+      <button onClick={
+        () => console.log(fireCollection)
+      }>Teste</button>
     </div>
+    ) : (
+      <div>
+        <h1>Login</h1>
+        <input type="text" onChange={(e) => setUser(e.target.value)} value={user}/>
+        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
+        <button onClick={() => {
+          if(password !== "" && password.length >= 4 && user !== "") {
+            setLogin(true);
+            setGetDb(getDb + 1)
+          } else {
+            alert("Você deve utilizar um nome de usuário e sua senha deve conter no mínimo 4 caracteres.")
+          }
+        }}>Entrar</button>
+      </div>
+    )
   );
 }
 
