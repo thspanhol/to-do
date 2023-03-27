@@ -1,6 +1,8 @@
 import { addDoc, collection, deleteDoc, doc, onSnapshot, query, updateDoc } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { db } from "./firebase";
+import Login from "./pages/Login";
+import "./App.module.css"
 
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
   const [quest, setQuest] = useState("");
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-  const fireCollection = `${user}-#-${password}`;
+  const fireCollection = `${user.toLocaleLowerCase()}-#-${password}`;
   const [login, setLogin] = useState(false);
   const [getDb, setGetDb] = useState(0);
 
@@ -71,19 +73,14 @@ function App() {
       }>Teste</button>
     </div>
     ) : (
-      <div>
-        <h1>Login</h1>
-        <input type="text" onChange={(e) => setUser(e.target.value)} value={user}/>
-        <input type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
-        <button onClick={() => {
-          if(password !== "" && password.length >= 4 && user !== "") {
-            setLogin(true);
-            setGetDb(getDb + 1)
-          } else {
-            alert("Você deve utilizar um nome de usuário e sua senha deve conter no mínimo 4 caracteres.")
-          }
-        }}>Entrar</button>
-      </div>
+      <Login
+      setUser={setUser}
+      user={user}
+      setPassword={setPassword}
+      password={password}
+      setLogin={setLogin}
+      setGetDb={setGetDb}
+      getDb={getDb} />
     )
   );
 }

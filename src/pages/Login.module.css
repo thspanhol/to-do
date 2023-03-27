@@ -1,0 +1,90 @@
+.login
+{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+
+    background: url('blue.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+
+    align-items: center;
+}
+.login div:nth-child(1)
+{
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    align-items: center;
+}
+.login div:nth-child(1) img
+{
+    width: 80%;
+    max-width: 800px;
+    height: fit-content;
+}
+.login div:nth-child(2)
+{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.login div:nth-child(2) input
+{
+    border-radius: 30px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    text-align: center;
+    font-size: x-large;
+    border: 2px solid gray;
+    margin-bottom: 1vh;
+    width: 78%;
+    max-width: 400px;
+    height: 6.75%;
+}
+.login div:nth-child(2) input::placeholder
+{
+    font-size: large;
+}
+.login div:nth-child(2) button
+{
+    border-radius: 30px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    text-align: center;
+    font-size: large;
+    border: 2px solid lightskyblue;
+    padding: 2px 5px;
+    cursor: pointer;
+    background: lightskyblue;
+    transition: 0.2s;
+    width: 40%;
+}
+.login div:nth-child(2) button:hover
+{
+    border-radius: 30px;
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+    text-align: center;
+    font-size: large;
+    border: 2px solid lightblue;
+    padding: 2px 5px;
+    cursor: pointer;
+    background: lightblue;
+    transition: 0.2s;
+    width: 35%;
+}
