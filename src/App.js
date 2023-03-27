@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "./firebase";
 import Login from "./pages/Login";
 import "./App.module.css"
+import List from "./pages/List";
 
 
 function App() {
@@ -14,7 +15,25 @@ function App() {
   const fireCollection = `${user.toLocaleLowerCase()}-#-${password}`;
   const [login, setLogin] = useState(false);
   const [getDb, setGetDb] = useState(0);
+  const [indexTodo, setIndexTodo] = useState(0);
 
+  //Login Functions
+  const validateLogin = () => {
+    if(password !== "" && password.length >= 4 && user !== "") {
+        setLogin(true);
+        setGetDb(getDb + 1)
+    } else {
+        alert("Você deve utilizar um nome de usuário e sua senha deve conter no mínimo 4 caracteres.")
+    }
+    };
+
+    const handleKeyDownLogin = (e) => {
+      if(e.key === "Enter") {
+          validateLogin();
+      }
+   };
+
+  //List Functions 
   //Create
   const createTodo = async () => {
     if(quest === "") {
@@ -24,10 +43,17 @@ function App() {
     await addDoc(collection(db, fireCollection), {
       text: quest,
       completed: false,
+      index: indexTodo + 1,
     })
     setQuest('');
     setGetDb(getDb + 1)
-  }
+  };
+
+  const handleKeyDownList = (e) => {
+    if(e.key === "Enter") {
+        createTodo();
+    }
+ };
   //Read
   useEffect(() => {
     const q = query(collection(db, fireCollection));
@@ -36,7 +62,7 @@ function App() {
       querySnapshot.forEach((doc) => {
         todosArr.push({...doc.data(), id: doc.id})
       });
-      console.log(todosArr);
+      setIndexTodo(todosArr.length);
       setTodos(todosArr);
     })
     return () => unsubscribe;
@@ -55,32 +81,23 @@ function App() {
 
   return (
     login ? (
-      <div>
-      <h1>Spanhol</h1>
-      <input type="text" onChange={(e) => setQuest(e.target.value)} value={quest}/>
-      <button onClick={() => createTodo()}>Enviar</button>
-      {todos !== "" && todos.map((todo) => {
-        return (
-          <div key={todo.id}>
-            <h4 onClick={() => toggleComplete(todo)}>{todo.text}</h4>
-            <input type="checkbox" checked={todo.completed}/>
-            <button onClick={() => deleteTodo(todo.id)}>Excluir</button>
-          </div>
-        )
-      })}
-      <button onClick={
-        () => console.log(fireCollection)
-      }>Teste</button>
-    </div>
+      <List
+      setQuest={setQuest}
+      quest={quest}
+      todos={todos}
+      toggleComplete={toggleComplete}
+      deleteTodo={deleteTodo}
+      fireCollection={fireCollection}
+      createTodo={createTodo}
+      handleKeyDownList={handleKeyDownList} />
     ) : (
       <Login
       setUser={setUser}
       user={user}
       setPassword={setPassword}
       password={password}
-      setLogin={setLogin}
-      setGetDb={setGetDb}
-      getDb={getDb} />
+      validateLogin={validateLogin}
+      handleKeyDownLogin={handleKeyDownLogin} />
     )
   );
 }

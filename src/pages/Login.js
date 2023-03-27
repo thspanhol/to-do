@@ -7,9 +7,8 @@ function Login(props) {
         user,
         setPassword,
         password,
-        setLogin,
-        setGetDb,
-        getDb,
+        validateLogin,
+        handleKeyDownLogin
     } = props;
 
   return (
@@ -19,16 +18,9 @@ function Login(props) {
        </div>
         <div>
             <h1>Login</h1>
-            <input placeholder="Usuário" type="text" onChange={(e) => setUser(e.target.value)} value={user}/>
-            <input placeholder="Senha" type="password" onChange={(e) => setPassword(e.target.value)} value={password}/>
-            <button onClick={() => {
-            if(password !== "" && password.length >= 4 && user !== "") {
-                setLogin(true);
-                setGetDb(getDb + 1)
-            } else {
-                alert("Você deve utilizar um nome de usuário e sua senha deve conter no mínimo 4 caracteres.")
-            }
-            }}>Entrar</button>
+            <input placeholder="Usuário" type="text" onChange={(e) => setUser(e.target.value)} value={user} onKeyDown={handleKeyDownLogin}/>
+            <input placeholder="Senha" type="password" onChange={(e) => setPassword(e.target.value)} value={password} onKeyDown={handleKeyDownLogin}/>
+            <button onClick={() => validateLogin()}>Entrar</button>
         </div>
       </div>
   );
