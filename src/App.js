@@ -19,11 +19,11 @@ function App() {
 
   //Login Functions
   const validateLogin = () => {
-    if(password !== "" && password.length >= 4 && user !== "") {
+    if(password !== "" && password.length >= 4 && user !== "" && user.length >= 4) {
         setLogin(true);
         setGetDb(getDb + 1)
     } else {
-        alert("Você deve utilizar um nome de usuário e sua senha deve conter no mínimo 4 caracteres.")
+        alert("Você deve utilizar um nome de usuário e uma senha que devem conter no mínimo 4 caracteres cada. 🔒")
     }
     };
 
