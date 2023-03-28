@@ -41,7 +41,7 @@ function App() {
       return
     }
     await addDoc(collection(db, fireCollection), {
-      text: quest,
+      text: quest[0].toLocaleUpperCase() + quest.substring(1),
       completed: false,
       index: indexTodo + 1,
     })
@@ -87,7 +87,6 @@ function App() {
       todos={todos}
       toggleComplete={toggleComplete}
       deleteTodo={deleteTodo}
-      fireCollection={fireCollection}
       createTodo={createTodo}
       handleKeyDownList={handleKeyDownList} />
     ) : (
