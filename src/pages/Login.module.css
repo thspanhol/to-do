@@ -1,196 +1,176 @@
-.login
-{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    background: url('blue.jpg');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    align-items: center;
+.login {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: url("blue.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  align-items: center;
 }
-.login div:nth-child(1)
-{
-    display: flex;
-    width: 60%;
-    justify-content: center;
-    align-items: center;
+.login div:nth-child(1) {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  align-items: center;
 }
-.login div:nth-child(1) img
-{
-    width: 80%;
-    max-width: 800px;
-    height: fit-content;
+.login div:nth-child(1) img {
+  width: 80%;
+  max-width: 800px;
+  height: fit-content;
 }
-.login div:nth-child(2)
-{
-    display: flex;
-    width: 30%;
-    flex-direction: column;
-    height: 35%;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    margin-top: 70px;
-    text-align: start;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+.login div:nth-child(2) {
+  display: flex;
+  width: 30%;
+  flex-direction: column;
+  height: 35%;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  margin-top: 70px;
+  text-align: start;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
 }
-.login div:nth-child(2) h1
-{
-    font-weight: bold;
-    color: lightskyblue;
-    -webkit-text-stroke: 0.75px #36464f;
-    font-size: 50px;
-    font-family: Impact, 'Anton', 'Arial Narrow Bold', sans-serif;
-    letter-spacing: -.005em;
-    font-style: italic;
-    cursor: default;
+.login div:nth-child(2) h1 {
+  font-weight: bold;
+  color: lightskyblue;
+  -webkit-text-stroke: 0.75px #36464f;
+  font-size: 50px;
+  font-family: Impact, "Anton", "Arial Narrow Bold", sans-serif;
+  letter-spacing: -0.005em;
+  font-style: italic;
+  cursor: default;
 }
-.login div:nth-child(2) label
-{
-    font-size: 16.5px;
-    font-family: Impact, 'Anton', 'Arial Narrow Bold', sans-serif;
-    color: #273139;
-    border: 3px 0 solid black;
-    margin-top: 10px;
-    cursor: pointer;
-    transition: 0.2s;
+.login div:nth-child(2) label {
+  font-size: 16.5px;
+  font-family: Impact, "Anton", "Arial Narrow Bold", sans-serif;
+  color: #273139;
+  border: 3px 0 solid black;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
-.login div:nth-child(2) label:hover
-{
-    color: #fff;
-    transition: 0.2s;
+.login div:nth-child(2) label:hover {
+  color: #fff;
+  transition: 0.2s;
 }
-.login div:nth-child(2) input
-{
-    border-radius: 30px;
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-    text-align: center;
-    font-size: x-large;
-    border: 2px solid gray;
-    margin-bottom: 1vh;
-    width: 78%;
-    max-width: 400px;
-    height: 8%;
-    font-family: Impact, 'Anton', 'Arial Narrow Bold', sans-serif;
-    color: #273139;
+.login div:nth-child(2) input {
+  border-radius: 30px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  text-align: center;
+  font-size: x-large;
+  border: 2px solid gray;
+  margin-bottom: 1vh;
+  width: 78%;
+  max-width: 400px;
+  height: 8%;
+  font-family: Impact, "Anton", "Arial Narrow Bold", sans-serif;
+  color: #273139;
 }
-.login div:nth-child(2) input::placeholder
-{
-    font-size: large;
+.login div:nth-child(2) input::placeholder {
+  font-size: large;
 }
-.login div:nth-child(2) button
-{
-    border-radius: 30px;
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-    text-align: center;
-    font-size: large;
-    border: 2px solid lightskyblue;
-    padding: 2px 5px;
-    cursor: pointer;
-    background: lightskyblue;
-    transition: 0.2s;
-    width: 40%;
-    font-family: Impact, 'Anton', 'Arial Narrow Bold', sans-serif;
-    color: #273139;
+.login div:nth-child(2) button {
+  border-radius: 30px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  text-align: center;
+  font-size: large;
+  border: 2px solid lightskyblue;
+  padding: 2px 5px;
+  cursor: pointer;
+  background: lightskyblue;
+  transition: 0.2s;
+  width: 40%;
+  font-family: Impact, "Anton", "Arial Narrow Bold", sans-serif;
+  color: #273139;
 }
-.login div:nth-child(2) button:hover
-{
-    border-radius: 30px;
-    box-shadow: 0 0 0 0;
-    border: 0 none;
-    outline: 0;
-    text-align: center;
-    font-size: large;
-    border: 2px solid lightblue;
-    padding: 2px 5px;
-    cursor: pointer;
-    background: lightblue;
-    transition: 0.2s;
-    width: 35%;
+.login div:nth-child(2) button:hover {
+  border-radius: 30px;
+  box-shadow: 0 0 0 0;
+  border: 0 none;
+  outline: 0;
+  text-align: center;
+  font-size: large;
+  border: 2px solid lightblue;
+  padding: 2px 5px;
+  cursor: pointer;
+  background: lightblue;
+  transition: 0.2s;
+  width: 35%;
 }
-.wrapper
-{
-	font-size: 130px;
-	height: 2em;
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    z-index: 1;
-    position: absolute;
-    margin-left: 45vw;
-    margin-top: -50vh;
+.wrapper {
+  font-size: 130px;
+  height: 2em;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: 45vw;
+  margin-top: -50vh;
 }
-.wrapper span
-{
-	--color: lightblue;
-	font-family: Impact, 'Anton', 'Arial Narrow Bold', sans-serif;
-	font-weight: 700;
-	font-style: italic;
-	display: block;
-	position: absolute;
-	color: var(--color);
-	letter-spacing: -.005em;
-    -webkit-text-stroke: 0.3px #36464f;
+.wrapper span {
+  --color: lightblue;
+  font-family: Impact, "Anton", "Arial Narrow Bold", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  display: block;
+  position: absolute;
+  color: var(--color);
+  letter-spacing: -0.005em;
+  -webkit-text-stroke: 0.3px #36464f;
 }
-.wrapper span::before, .wrapper span::after
-{
-	content: attr(data-text);
-	display: block;
-	position: relative;
-	padding: 0 .1em;
-	z-index: 1;
+.wrapper span::before,
+.wrapper span::after {
+  content: attr(data-text);
+  display: block;
+  position: relative;
+  padding: 0 0.1em;
+  z-index: 1;
 }
 
-.wrapper span::before
-{
-	position: absolute;
-	z-index: 0;
+.wrapper span::before {
+  position: absolute;
+  z-index: 0;
 }
-.wrapper span:first-child
-{
-    transform: translate(-.255em, -.5em);
+.wrapper span:first-child {
+  transform: translate(-0.255em, -0.5em);
 }
-.wrapper span:last-child
-{
-	--color: #1E90FF;
-	transform: translate(.255em, .25em);
+.wrapper span:last-child {
+  --color: #1e90ff;
+  transform: translate(0.255em, 0.25em);
 }
-.login p
-{
-    font-size: 50px;
-	height: 2em;
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    z-index: 1;
-    position: absolute;
-    margin-left: 40vw;
-    margin-top: -76vh;
-    font-family: 'Ephesis', cursive;
-    font-weight: bold;
-    color: #fffefe;
-    cursor: default;
+.login p {
+  font-size: 50px;
+  height: 2em;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  position: absolute;
+  margin-left: 40vw;
+  margin-top: -76vh;
+  font-family: "Ephesis", cursive;
+  font-weight: bold;
+  color: #fffefe;
+  cursor: default;
 }
 
-@media screen and (max-width: 500px)
-{
-.login div:nth-child(1) img
-{
-  display: none;
-}
-.login div:nth-child(2)
-{
+@media screen and (max-width: 500px) {
+  .login div:nth-child(1) img {
+    display: none;
+  }
+  .login div:nth-child(2) {
     display: flex;
     width: 80%;
     flex-direction: column;
@@ -209,20 +189,17 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
     position: absolute;
     z-index: 1;
-}
-.login div:nth-child(2) input
-{
+  }
+  .login div:nth-child(2) input {
     height: 13%;
-}
-.wrapper
-{
-	font-size: 55px;
+  }
+  .wrapper {
+    font-size: 55px;
     margin-left: 25vw;
-}
-.login p
-{
+  }
+  .login p {
     font-size: 30px;
     margin-left: 15vw;
     margin-top: -67.5vh;
-}
+  }
 }
